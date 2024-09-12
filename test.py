@@ -26,9 +26,9 @@ class Cilveks:
     def vardamaina(self, jaunsvards):
         self.vards = jaunsvards
 
-persona = Cilveks("Reinis", "V", 18)
+persona = Cilveks("Aleksis", "V", 18)
 persona.pastastitparsevi()
 persona.dzimsanasdiena()
 persona.dzimummaina()
-persona.vardamaina("Aleksis")
+persona.vardamaina("Alex")
 persona.pastastitparsevi()
