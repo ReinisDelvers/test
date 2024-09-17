@@ -5,7 +5,7 @@ class Person:
         self.sex = sex
         self.age = age
 
-    def tellmeaboutmyself(self):
+    def info(self):
         if self.sex == "V":
             sexname = "Virietis"
         elif self.sex == "S":
@@ -13,34 +13,34 @@ class Person:
         else:
             sexname = self.sex
 
-        print(f"Sveiki mani sauc {self.name}. Man ir {self.age} gadi. Es esmu {sexname}")
+        return f"Sveiki mani sauc {self.name}. Man ir {self.age} gadi. Es esmu {sexname}"
     
     def sexchange(self):
         if self.sex == "V":
             self.sex = "S"
         elif self.sex == "S":
             self.sex = "V"
-        # persona.tellmeaboutmyself()
+        # persona.info()
 
 
     def birthday(self):
         self.age += 1
-        # persona.tellmeaboutmyself()
+        # persona.info()
 
     
     def namechange(self, newname):
         self.name = newname
-        # persona.tellmeaboutmyself()
+        # persona.info()
 
 class Women(Person):
     
     def __init__(self, name, haircolor, age = 0):
         super().__init__(name,"S", age)
         self.haircolor = haircolor
-        # self.tellmeaboutmyself()
+        # self.info()
         
     # def tellmeaboutmyself(self):
-    #     super().tellmeaboutmyself()
+    #     super().info()
     #     print(f"Mana matu krāsa ir {self.haircolor}")
 
 class Men(Person):
@@ -48,15 +48,15 @@ class Men(Person):
     def __init__(self, name, hobby, age = 0):
         super().__init__(name,"S", age)
         self.hobby = hobby
-        # self.tellmeaboutmyself()
+        # self.info()
         
     # def tellmeaboutmyself(self):
-    #     super().tellmeaboutmyself()
+    #     super().info()
     #     print(f"Mans hobijs ir {self.hobby}")
 
 
 persona = Person("Aleksis", "V", 18)
-# persona.tellmeaboutmyself()
+# persona.info()
 # persona.birthday()
 # persona.sexchange()
 # persona.namechange("Alex")

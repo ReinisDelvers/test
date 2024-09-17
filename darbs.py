@@ -11,4 +11,4 @@ for women in peoplelist:
 
 print("-------------")
 for women in peoplelist:
-    women.tellmeaboutmyself()
+    women.info()
