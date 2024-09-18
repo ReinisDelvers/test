@@ -6,8 +6,6 @@ from tkinter.messagebox import showerror
 from tkinter.messagebox import showinfo
 
 allpeople = []
-allpeople1 = ("afsd", "asdg", "ash")
-
 
 
 root = tk.Tk()
@@ -50,7 +48,7 @@ def razot_button_clicked():
     allpeople.append(Person(name1, sex1, age1))
     print(name1, sex1, age1)
     result_label.config(text=allpeople[-1].info())
-    list()
+    list(allpeople)
 
 button = ttk.Button(frame, text='Produce person')
 button.grid(column=2, row=0, sticky='W', **options)
@@ -59,8 +57,13 @@ button.configure(command=razot_button_clicked)
 result_label = ttk.Label(frame)
 result_label.grid(row=3, columnspan=3, **options)
 
-def list():
-    var = tk.Variable(value=allpeople1)
+
+print(f"0 + {allpeople}")
+
+def list(allpeople):
+    print(f"00 + {allpeople}")
+    tuple(allpeople)
+    var = tk.Variable(value=allpeople)
 
     listbox = tk.Listbox(
         root,
