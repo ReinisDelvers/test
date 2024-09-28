@@ -6,22 +6,14 @@ class Person:
         self.age = age
 
     def info(self):
-        if self.sex == "V":
-            sexname = "Virietis"
-        elif self.sex == "S":
-            sexname = "Sieviete"
-        else:
-            sexname = self.sex
-
-        return f"Sveiki mani sauc {self.name}. Man ir {self.age} gadi. Es esmu {sexname}"
+        return f"Sveiki mani sauc {self.name}. Man ir {self.age} gadi. Es esmu {self.sex}"
     
     def sexchange(self):
-        if self.sex == "V":
-            self.sex = "S"
-        elif self.sex == "S":
-            self.sex = "V"
+        if self.sex == "Vīrietis":
+            self.sex = "Sieviete"
+        elif self.sex == "Sieviete":
+            self.sex = "Vīrietis"
         # persona.info()
-
 
     def birthday(self):
         self.age += 1

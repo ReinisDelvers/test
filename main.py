@@ -29,6 +29,11 @@ name_entry = ttk.Entry(frame, textvariable=name)
 name_entry.grid(column=1, row=0, **options)
 name_entry.focus()
 
+new_name = tk.StringVar()
+new_name_entry = ttk.Entry(frame, textvariable=new_name)
+new_name_entry.grid(column=1, row=4, **options)
+new_name_entry.focus()
+
 sex = tk.StringVar(value="None")
 R1 = tk.Radiobutton(frame, text="Vīrietis", variable=sex, value="Vīrietis")
 R1.grid(column=1, row=1, **options)
@@ -66,20 +71,42 @@ def change_list():
     for Person in allpeople:
         listbox.insert("end",f"{Person.name},{Person.sex},{Person.age}")
 
+def name_change_button_clicked():
+    new_text = ""
+    newname = new_name.get()
+    for selected in listbox.curselection():
+        allpeople[selected].namechange(newname)
+        new_text += allpeople[selected].info()
+    change_list()
+
+def sex_change_button_clicked():
+    new_text = ""
+    for selected in listbox.curselection():
+        allpeople[selected].sexchange()
+        new_text += allpeople[selected].info()
+    change_list()
+
 def birthday_button_clicked():
     new_text = ""
     for selected in listbox.curselection():
         allpeople[selected].birthday()
         new_text += allpeople[selected].info()
-    print(new_text)
     change_list()
 
 production_button = ttk.Button(frame, text='Produce person')
 production_button.grid(column=2, row=0, sticky='W', **options)
 production_button.configure(command=razot_button_clicked)
 
+name_change_button = ttk.Button(frame, text='Name change')
+name_change_button.grid(column=2, row=4, sticky='W', **options)
+name_change_button.configure(command=name_change_button_clicked)
+
+sex_change_button = ttk.Button(frame, text='Sex change')
+sex_change_button.grid(column=3, row=4, sticky='W', **options)
+sex_change_button.configure(command=sex_change_button_clicked)
+
 birthday_button = ttk.Button(frame, text='Birthday')
-birthday_button.grid(column=2, row=4, sticky='W', **options)
+birthday_button.grid(column=4, row=4, sticky='W', **options)
 birthday_button.configure(command=birthday_button_clicked)
 
 listbox = tk.Listbox(frame, height=6, selectmode=tk.EXTENDED)
