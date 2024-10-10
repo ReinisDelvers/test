@@ -72,11 +72,11 @@ def change_list():
         listbox.insert("end",f"{Person.name},{Person.sex},{Person.age}")
 
 def name_change_button_clicked():
-    new_text = ""
+
     newname = new_name.get()
     for selected in listbox.curselection():
         allpeople[selected].namechange(newname)
-        new_text += allpeople[selected].info()
+
     change_list()
 
 def sex_change_button_clicked():
